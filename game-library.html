@@ -227,50 +227,53 @@
             </div>
         </section>
 
-                <!-- Reserve game form section -->
-                <section id="reserve-form" class="container section">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-md-8 text-center">
-                            <h2 class="display-6">Reserve a Game</h2>
-                            <p class="text-start">Reserve a board game for your next visit to Boardwalk Games. Pick your challenge, and let the adventure begin! Fill out your details and preferred game below, and we'll have it set aside for you when you arrive.</p>
-                            <form action="success.html" method="GET">
-                                <div class="row">
-                                    <div class="col-12 col-lg-4 mb-3">
-                                        <label for="fullName" class="form-label">Full Name</label>
-                                        <input class="form-control" id="fullname" name="fullName" type="text" required>
-                                    </div>
-                                    <div class="col-12 col-lg-4 mb-3">
-                                        <label for="phone" class="form-label">Phone number</label>
-                                        <input class="form-control" id="phone" name="phone" type="number" required>
-                                    </div>
-                                    <div class="col-12 col-lg-4 mb-3">
-                                        <label for="email" class="form-label">Email</label>
-                                        <input class="form-control" id="email" name="email" type="email" required>
-                                    </div>
-                                    <div class="col-12 col-lg-8 mb-3">
-                                        <label for="game-selection" class="form-label">Game selection</label>
-                                        <select id="game-selection" class="form-select" name="game-selection" required>
-                                            <option value="" selected>Select game</option>
-                                            <option value="galaxy-pioneers">Galaxy Pioneers</option>
-                                            <option value="mystic-woods">Mystic Woods</option>
-                                            <option value="captains-gambit">Captain's Gambit</option>
-                                            <option value="settlers-of-catan">Settlers of Catan</option>
-                                            <option value="monopoly">Monopoly</option>
-                                            <option value="exploding-kittens">Exploding Kittens</option>
-                                            <option value="cluedo">Cluedo</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 col-lg-4 mb-3">
-                                        <label for="requestedDate" class="form-label">Requested date</label>
-                                        <input class="form-control" id="requestedDate" name="requestedDate" type="date" required>
-                                    </div>
-                                    <div class="container text-end">
+        <!-- Reserve game form section -->
+        <section id="reserve-form" class="container section">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 text-center">
+                    <h2 class="display-6">Reserve a Game</h2>
+                    <p class="text-start">Reserve a board game for your next visit to Boardwalk Games. Pick your
+                        challenge, and let the adventure begin! Fill out your details and preferred game below, and
+                        we'll have it set aside for you when you arrive.</p>
+                    <form action="success.html" method="GET">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input class="form-control" id="fullname" name="fullName" type="text" required>
+                            </div>
+                            <div class="col-12 col-lg-4 mb-3">
+                                <label for="phone" class="form-label">Phone number</label>
+                                <input class="form-control" id="phone" name="phone" type="number" required>
+                            </div>
+                            <div class="col-12 col-lg-4 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input class="form-control" id="email" name="email" type="email" required>
+                            </div>
+                            <div class="col-12 col-lg-8 mb-3">
+                                <label for="game-selection" class="form-label">Game selection</label>
+                                <select id="game-selection" class="form-select" name="game-selection" required>
+                                    <option value="" selected>Select game</option>
+                                    <option value="galaxy-pioneers">Galaxy Pioneers</option>
+                                    <option value="mystic-woods">Mystic Woods</option>
+                                    <option value="captains-gambit">Captain's Gambit</option>
+                                    <option value="settlers-of-catan">Settlers of Catan</option>
+                                    <option value="monopoly">Monopoly</option>
+                                    <option value="exploding-kittens">Exploding Kittens</option>
+                                    <option value="cluedo">Cluedo</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-lg-4 mb-3">
+                                <label for="requestedDate" class="form-label">Requested date</label>
+                                <input class="form-control" id="requestedDate" name="requestedDate" type="date"
+                                    required>
+                            </div>
+                            <div class="container text-end">
                                 <button type="submit" class="btn custom-button-outline mb-4">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </section>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- footer / contact section -->
@@ -345,10 +348,32 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
+    </script>
 
     <!-- Font Awesome kit -->
     <script src="https://kit.fontawesome.com/f40fe655b1.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript code to ensure the Bootstrap mobile navbar collapses when navigating to in-page links -->
+    <script>
+        document
+            .querySelectorAll(".navbar-collapse .nav-link")
+            .forEach((link) => {
+                link.addEventListener("click", function (e) {
+                    let section = document.querySelector(e.target.getAttribute("href"));
+                    if (section) {
+                        e.preventDefault(); // Prevent default anchor click behavior
+                        let navbarHeight = document.querySelector(".navbar-toggler").offsetHeight;
+                        window.scroll({
+                            top: section.offsetTop - navbarHeight, // Adjust for navbar height
+                            behavior: "smooth",
+                        });
+                        document
+                            .querySelector(".navbar-collapse")
+                            .classList.remove("show"); // Collapse navbar
+                    }
+                });
+            });
+    </script>
 
 </body>
 

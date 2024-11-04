@@ -213,45 +213,45 @@
                         games and meet fellow enthusiasts.
                     </p>
                 </div>
-            <!-- Event opening times -->
-            <div class="col-12 col-xl-6 m-auto">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Event</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Time</th>
-                            <th scope="col">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Dungeons & Dragons</th>
-                            <td>Tuesdays</td>
-                            <td>8pm - 11pm</td>
-                            <td>€25 for 6 sessions</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Retro Game Night</th>
-                            <td>Thursdays</td>
-                            <td>8pm - 11pm</td>
-                            <td>€5 per person*</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Tournaments</th>
-                            <td>Last Sunday of the month</td>
-                            <td>12pm - 7pm</td>
-                            <td>€10 per person</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="col-12 mt-4">
-                    <p class="my-4 blue-white-contrast text-center">
-                        <strong>*Get 20% off with valid student ID</strong>
-                    </p>
+                <!-- Event opening times -->
+                <div class="col-12 col-xl-6 m-auto">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Event</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Dungeons & Dragons</th>
+                                <td>Tuesdays</td>
+                                <td>8pm - 11pm</td>
+                                <td>€25 for 6 sessions</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Retro Game Night</th>
+                                <td>Thursdays</td>
+                                <td>8pm - 11pm</td>
+                                <td>€5 per person*</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tournaments</th>
+                                <td>Last Sunday of the month</td>
+                                <td>12pm - 7pm</td>
+                                <td>€10 per person</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-12 mt-4">
+                        <p class="my-4 blue-white-contrast text-center">
+                            <strong>*Get 20% off with valid student ID</strong>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
             <div class="container text-center">
                 <a href="booking.html" class="btn custom-button-outline mb-4 mt-4">Book now</a>
@@ -337,6 +337,28 @@
 
     <!-- Font Awesome kit -->
     <script src="https://kit.fontawesome.com/f40fe655b1.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript code to ensure the Bootstrap mobile navbar collapses when navigating to in-page links -->
+    <script>
+        document
+            .querySelectorAll(".navbar-collapse .nav-link")
+            .forEach((link) => {
+                link.addEventListener("click", function (e) {
+                    let section = document.querySelector(e.target.getAttribute("href"));
+                    if (section) {
+                        e.preventDefault(); // Prevent default anchor click behavior
+                        let navbarHeight = document.querySelector(".navbar-toggler").offsetHeight;
+                        window.scroll({
+                            top: section.offsetTop - navbarHeight, // Adjust for navbar height
+                            behavior: "smooth",
+                        });
+                        document
+                            .querySelector(".navbar-collapse")
+                            .classList.remove("show"); // Collapse navbar
+                    }
+                });
+            });
+    </script>
 
 </body>
 
