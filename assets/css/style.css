@@ -42,6 +42,11 @@ h2 {
     margin-bottom: 2rem;
 }
 
+.blue-white-contrast {
+    background-color: #416a8e;
+    color: white;
+}
+
 /* Buttons */
 
 .custom-button-filled {
